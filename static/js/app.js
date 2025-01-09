@@ -19,25 +19,13 @@ function buildMetadata(sample) {
     // Inside a loop, you will need to use d3 to append new
     // tags for each key-value in the filtered metadata.
     Object.entries(result).forEach(([key, value]) => {
-      metadataPanel.append("p").text(`${key.toLocaleUpperCase()}: ${value}`);
+
+      // The .html() allows you to add HTML tags and will interpret them.
+      // Use .text() method if you don't have any HTML tags to add
+      metadataPanel.append("p").html(`<b>${key.toLocaleUpperCase()}:</b> ${value}`); 
     });
   });
 }
-
-d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) =>{
-  
-  let testSample = data.samples;
-  
-  let chosenSampleTest = testSample.filter(document => document.id == 940)[0];
-  
-  console.log(chosenSampleTest);
-  
-  let otu_idsTest = chosenSampleTest.otu_ids;
-  console.log(otu_idsTest);
-
-  let sample_valuesTest = chosenSampleTest.sample_values;
-  console.log(sample_valuesTest);
-})
 
 
 // function to build both charts
@@ -65,6 +53,11 @@ function buildCharts(sample) {
       marker: {
         size: sampleValues,
         color: otuIDs,
+        colorscale: [
+          [0, "#347ab6"],
+          [0.5, "#ffffff"],
+          [1, "#102542"]
+        ],
         showscale: true
       }
     }];

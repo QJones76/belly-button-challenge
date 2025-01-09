@@ -1,0 +1,9 @@
+.card-header {
+    background-color: #347ab6;
+}
+div.card.card-body {
+    background-color: #347ab6 !important;
+}
+select {
+    background-color: #e3f2fd !important;
+}
