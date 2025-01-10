@@ -1,9 +1,18 @@
 .card-header {
     background-color: #347ab6;
 }
+
+/* body {
+    background-color: #B0B0B0;
+} */
+
+/* the '!immportant' overides the pre-built css that came with the starter files */
 div.card.card-body {
-    background-color: #347ab6 !important;
+    background-color: #347ab6 !important; 
 }
 select {
     background-color: #e3f2fd !important;
+}
+div.col-md-12.text-center {
+    background-color: #F2F2F2  !important;
 }

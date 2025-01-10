@@ -53,10 +53,12 @@ function buildCharts(sample) {
       marker: {
         size: sampleValues,
         color: otuIDs,
-        colorscale: [
-          [0, "#347ab6"],
-          [0.5, "#ffffff"],
-          [1, "#102542"]
+        colorscale: [ // Custom color scale for bubbles
+          [0, "#B63447"],
+          [0.25, "#FF6F31"],
+          [0.5, "#347ab6"],
+          [0.75, "#31D8FF"],
+          [1, "#34B66F"]
         ],
         showscale: true
       }
