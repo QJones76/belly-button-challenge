@@ -1,5 +1,3 @@
-let sample = "940";
-
 // Build the metadata panel
 function buildMetadata(sample) {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
@@ -48,7 +46,8 @@ function buildCharts(sample) {
     let trace = [{
       x: otuIDs,
       y: sampleValues,
-      text: otuLabels,
+      text: otuIDs.map((id, index) => 
+        `<b>OTU ID:</b> ${id}<br>---------------------------<br><b>Sample Value:</b> ${sampleValues[index]}`),
       mode: "markers",
       marker: {
         size: sampleValues,
@@ -61,7 +60,10 @@ function buildCharts(sample) {
           [1, "#34B66F"]
         ],
         showscale: true
-      }
+      },
+
+      hoverinfo: "text" // This means only the text field will be visible on the tooltip popups
+
     }];
 
     let layout = {
