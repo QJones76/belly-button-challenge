@@ -1,3 +1,11 @@
+// Add a function to clean up otuLabel strings
+const wrapText = (str, br = '<br>') => {
+  // Split the string at each semicolon and join with a line break
+  return str.split(';').join(br);
+};
+
+
+
 // Build the metadata panel
 function buildMetadata(sample) {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
@@ -47,7 +55,7 @@ function buildCharts(sample) {
       x: otuIDs,
       y: sampleValues,
       text: otuIDs.map((id, index) => 
-        `<b>OTU ID:</b> ${id}<br>---------------------------<br><b>Sample Value:</b> ${sampleValues[index]}`),
+        `<b>OTU ID:</b> ${id}<br>---------------------------<br><b>Sample Value:</b> ${sampleValues[index]}<br>---------------------------<br><b>Sample Label:</b><br>${wrapText(otuLabels[index])}`),
       mode: "markers",
       marker: {
         size: sampleValues,
