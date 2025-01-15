@@ -4,7 +4,7 @@ In this challenge, I took a dataset from [The Public Science Lab](https://robdun
 
 ## Usage
 ---
-When you first load the dashboard, the metadata panel on the left and the two charts will be selected for and displaying relevent information on subject 940. To change the focus, simply select another subject from the dropdown menu located above the metadata panel. On a few of the subjects, they have sample values that are too big for the bubble chart. An example would be subject 1546, who's bubble chart looks like ![this](https://github.com/user-attachments/assets/944245c1-385d-4a28-8dad-41f0429b0765)
+When you first load the dashboard, the metadata panel on the left and the two charts will be selected for and displaying relevent information on subject 940. To change the focus, simply select another subject from the dropdown menu located above the metadata panel. On a few of the subjects, they have sample values that are too big for the bubble chart. An example would be subject 1546, who's bubble chart looks like [this](https://github.com/user-attachments/assets/944245c1-385d-4a28-8dad-41f0429b0765)
 
 To get around this issue, I have changed the text value of the bubble charts to include an arrow function to itterate throught the values and return additional information on the tooltip. Thus, I went from this: 
 ```
