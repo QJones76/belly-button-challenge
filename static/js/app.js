@@ -54,8 +54,7 @@ function buildCharts(sample) {
     let trace = [{
       x: otuIDs,
       y: sampleValues,
-      text: otuIDs.map((id, index) => 
-        `<b>OTU ID:</b> ${id}<br>---------------------------<br><b>Sample Value:</b> ${sampleValues[index]}<br>---------------------------<br><b>Sample Label:</b><br>${wrapText(otuLabels[index])}`),
+      text: otuIDs.map((id, index) => `<b>OTU ID:</b> ${id}<br>---------------------------<br><b>Sample Value:</b> ${sampleValues[index]}<br>---------------------------<br><b>Sample Label:</b><br>${wrapText(otuLabels[index])}`),
       mode: "markers",
       marker: {
         size: sampleValues,
@@ -70,7 +69,7 @@ function buildCharts(sample) {
         showscale: true
       },
 
-      hoverinfo: "text" // This means only the text field will be visible on the tooltip popups
+      hoverinfo: "text", // This means only the text field will be visible on the tooltip popups
 
     }];
 
@@ -88,11 +87,15 @@ function buildCharts(sample) {
 
     // Build a Bar Chart
     // Don't forget to slice and reverse the input data appropriately
+    // Apply wrapText function to the labels for the Bar Chart
+    let wrappedLabels = otuLabels.slice(0, 10).map(label => wrapText(label));
+    
+    
     let barData = [{
       type: "bar",
       x: sampleValues.slice(0, 10).reverse(),
       y: labels,
-      text: otuLabels.slice(0, 10).reverse(),
+      text: wrappedLabels.reverse(),
       orientation: 'h'
     }];
 
